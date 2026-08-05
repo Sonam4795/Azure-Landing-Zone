@@ -3,3 +3,8 @@ module "rg_module" {
 
 rgs = var.prod_rg
 }
+module "vnet_module" {
+    source = "../../../module/azurerm_virtual_network"
+    vnets = var.prod_vnet
+  
+}
