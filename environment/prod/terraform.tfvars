@@ -15,3 +15,12 @@ prod_vnet =  {
 
 
 }
+prod_subnet = {
+    prod_subnet1 = {
+        name = "sona_prod_sbn"
+        resource_group_name = "siya_keshav"
+        virtual_network_name = "chhotu_prod"
+        address_prefixes = "10.0.1.0/16"
+
+    }
+}
