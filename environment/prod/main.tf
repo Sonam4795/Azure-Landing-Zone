@@ -8,3 +8,9 @@ module "vnet_module" {
     vnets = var.prod_vnet
   
 }
+module "subnet_module" {
+    source = "../../../module/azurerm_subnet"
+    subnets = var.prod_subnet
+
+ 
+}
