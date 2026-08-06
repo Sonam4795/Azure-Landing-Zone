@@ -24,3 +24,24 @@ prod_subnet = {
 
     }
 }
+prod_Pip = {
+    prod_pip1 = {
+        name = "prod_pip_nanu"
+      location = "central india"
+      resource_group_name = "siya_keshav"
+      allocation_method = "Static"
+      sku = "Standard"
+    }
+}
+
+prod_nic = {
+    prod_nic1 = {
+        name             = "prod_nic_kaka"
+    location             = "central india"
+    resource_group_name  = "siya_keshav"
+    virtual_network_name = "chhotu_prod"
+    subnet_name          = "sona_prod_sbn"
+    pip_name             = "prod_pip_nanu"
+
+    }
+}
