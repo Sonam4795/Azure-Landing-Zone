@@ -1,0 +1,12 @@
+trigger: none
+pool: devops agent pool
+stages:
+- stage: terraforminstaller
+  displayName: terraform installer
+
+  jobs:
+  - job: terraforminstaller
+    displayName: terraform installer
+
+    steps:
+    
