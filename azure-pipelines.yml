@@ -59,5 +59,19 @@ stages:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
         environmentServiceNameAzureRM: 'azure devops service connection'
+
+- stage: terraformapply
+  displayName: terraform apply
+  jobs:
+  - job: terraformapply
+    displayName: terraform apply
+
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+        environmentServiceNameAzureRM: 'azure devops service connection'
     
-    
+
