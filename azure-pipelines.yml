@@ -41,6 +41,16 @@ stages:
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+        backendServiceArm: 'azure devops service connection'
+        backendAzureRmResourceGroupName: 'pinki'
+        backendAzureRmStorageAccountName: 'whitedrum'
+        backendAzureRmContainerName: 'stgcontainer'
+        backendAzureRmKey: 'terraform.tfkey'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
         command: 'custom'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
         outputTo: 'console'
@@ -70,8 +80,20 @@ stages:
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+        backendServiceArm: 'azure devops service connection'
+        backendAzureRmResourceGroupName: 'pinki'
+        backendAzureRmStorageAccountName: 'whitedrum'
+        backendAzureRmContainerName: 'stgcontainer'
+        backendAzureRmKey: 'terraform.tfkey'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
         command: 'apply'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
         environmentServiceNameAzureRM: 'azure devops service connection'
     
 
+    
