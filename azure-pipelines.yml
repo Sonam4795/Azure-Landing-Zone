@@ -28,7 +28,7 @@ stages:
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
         backendServiceArm: 'azure devops service connection'
-        backendAzureRmOverrideSubscriptionID: '3932b5be-57e9-448f-8092-d5058b82f170'
+        
         backendAzureRmResourceGroupName: 'pinki'
         backendAzureRmStorageAccountName: 'whitedrum'
         backendAzureRmContainerName: 'stgcontainer'
