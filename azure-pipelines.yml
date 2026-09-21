@@ -27,7 +27,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-        backendServiceArm: 'azure devops service connection'
+        backendServiceArm: 'ADO SERVICE CONNECTION'
         backendAzureRmResourceGroupName: 'dev-rg'
         backendAzureRmStorageAccountName: 'devstg123'
         backendAzureRmContainerName: 'devstgcontainer'
