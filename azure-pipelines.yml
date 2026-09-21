@@ -33,69 +33,69 @@ stages:
         backendAzureRmContainerName: 'devstgcontainer'
         backendAzureRmKey: 'terraform.tfkey'
 
-# - stage: terraformfmtvalidateplan
-#   displayName: terraform fmt validate and plan
-#   jobs:
-#   - job: terraformfmtvalidateplan
-#     displayName: terraform fmt validate and plan
+- stage: terraformfmtvalidateplan
+  displayName: terraform fmt validate and plan
+  jobs:
+  - job: terraformfmtvalidateplan
+    displayName: terraform fmt validate and plan
 
-#     steps:
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'init'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-#         backendServiceArm: 'azure devops service connection'
-#         backendAzureRmResourceGroupName: 'pinki'
-#         backendAzureRmStorageAccountName: 'whitedrum'
-#         backendAzureRmContainerName: 'stgcontainer'
-#         backendAzureRmKey: 'terraform.tfkey'
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'custom'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
-#         outputTo: 'console'
-#         customCommand: 'fmt'
-#         environmentServiceNameAzureRM: 'azure devops service connection'
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+        backendServiceArm: 'ADO SERVICE CONNECTION'
+        backendAzureRmResourceGroupName: 'dev-rg'
+        backendAzureRmStorageAccountName: 'devstg123'
+        backendAzureRmContainerName: 'devstgcontainer'
+        backendAzureRmKey: 'terraform.tfkey'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'custom'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+        outputTo: 'console'
+        customCommand: 'fmt'
+        environmentServiceNameAzureRM: 'ADO SERVICE CONNECTION'
     
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'validate'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
 
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'plan'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
-#         environmentServiceNameAzureRM: 'azure devops service connection'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+        environmentServiceNameAzureRM: 'ADO SERVICE CONNECTION'
 
-# - stage: terraformapply
-#   displayName: terraform apply
-#   jobs:
-#   - job: terraformapply
-#     displayName: terraform apply
+- stage: terraformapply
+  displayName: terraform apply
+  jobs:
+  - job: terraformapply
+    displayName: terraform apply
 
-#     steps:
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'init'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
-#         backendServiceArm: 'azure devops service connection'
-#         backendAzureRmResourceGroupName: 'pinki'
-#         backendAzureRmStorageAccountName: 'whitedrum'
-#         backendAzureRmContainerName: 'stgcontainer'
-#         backendAzureRmKey: 'terraform.tfkey'
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+        backendServiceArm: 'ADO SERVICE CONNECTION'
+        backendAzureRmResourceGroupName: 'dev-rg'
+        backendAzureRmStorageAccountName: 'devstg123'
+        backendAzureRmContainerName: 'devstgcontainer'
+        backendAzureRmKey: 'terraform.tfkey'
 
-#     - task: TerraformTask@5
-#       inputs:
-#         provider: 'azurerm'
-#         command: 'apply'
-#         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
-#         environmentServiceNameAzureRM: 'azure devops service connection'
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
+        environmentServiceNameAzureRM: 'ADO SERVICE CONNECTION'
     
 
     
