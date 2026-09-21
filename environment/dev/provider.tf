@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "pinki"
-    storage_account_name = "whitedrum"
-    container_name       = "stgcontainer"
+    resource_group_name  = "dev-rg"
+    storage_account_name = "devstg123"
+    container_name       = "devstgcontainer"
     key                  = "terraform.tfkey"
 
   }
