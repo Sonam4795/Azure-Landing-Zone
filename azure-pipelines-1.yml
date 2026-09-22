@@ -1,7 +1,14 @@
 trigger: none
 pool: devops agent pool
+parameters:
+- name: environment          # name of the parameter; required
+  type: environment            # see the enum data types in the following section
+  default: dev          # default value; if no default, then the parameter MUST be given by the user at runtime
+  values:
+  - dev
+  - prod    # allowed list of values (for some data types)
 variables:
- working_directory: $(System.DefaultWorkingDirectory)/environment/dev
+ working_directory: $(System.DefaultWorkingDirectory)/${{ parameters.environment }}
  service_connection: 'ADO SERVICE CONNECTION'
 
 stages:
