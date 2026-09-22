@@ -26,12 +26,11 @@ stages:
 
     steps:
     - task: TerraformInstaller@1
+      displayName: terraform installer
       inputs:
         terraformVersion: 'latest'
     - task: TerraformTask@5
       displayName: terraform init
-    
-
       inputs:
         provider: 'azurerm'
         command: 'init'
@@ -43,6 +42,7 @@ stages:
         backendAzureRmKey: $(key)
 
     - task: TerraformTask@5
+      displayName: terraform fmt
       inputs:
         provider: 'azurerm'
         command: 'custom'
@@ -52,12 +52,14 @@ stages:
         environmentServiceNameAzureRM: $(service_connection)
 
     - task: TerraformTask@5
+      displayName: terraform validate
       inputs:
         provider: 'azurerm'
         command: 'validate'
         workingDirectory: $(working_directory)
 
     - task: TerraformTask@5
+      displayName: terraform plan
       inputs:
         provider: 'azurerm'
         command: 'plan'
@@ -113,6 +115,7 @@ stages:
     pool: server
     steps:
     - task: ManualValidation@1
+      displayName: manual validation
       inputs:
         notifyUsers: 'sona.mahi1995@gmail.com'
         approvers: 'sona.mahi1995@gmail.com'
@@ -125,6 +128,7 @@ stages:
 
     steps:
     - task: TerraformTask@5
+      displayName: terraform init
       inputs:
         provider: 'azurerm'
         command: 'init'
@@ -136,6 +140,7 @@ stages:
         backendAzureRmKey: $(key)
 
     - task: TerraformTask@5
+      displayName: terraform apply
       inputs:
         provider: 'azurerm'
         command: 'apply'
