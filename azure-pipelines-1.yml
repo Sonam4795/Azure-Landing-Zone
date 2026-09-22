@@ -8,7 +8,7 @@ parameters:
   - dev
   - prod    # allowed list of values (for some data types)
 variables:
- working_directory: $(System.DefaultWorkingDirectory)/${{ parameters.environment }}
+ working_directory: $(System.DefaultWorkingDirectory) ${{ parameters.environment }}
  service_connection: 'ADO SERVICE CONNECTION'
 
 stages:
