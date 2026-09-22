@@ -7,9 +7,14 @@ parameters:
   values:
   - dev
   - prod    # allowed list of values (for some data types)
+
 variables:
  working_directory: $(System.DefaultWorkingDirectory) ${{ parameters.environment }}
  service_connection: 'ADO SERVICE CONNECTION'
+ resource_group_name: 'dev-rg'
+ storage_account_name: 'devstg12345'
+ container_name: 'devstgcontainer'
+ key: 'terraform.tfstate'
 
 stages:
 - stage: terraforminit
@@ -32,10 +37,10 @@ stages:
         command: 'init'
         workingDirectory: $(working_directory)
         backendServiceArm: $(service_connection)
-        backendAzureRmResourceGroupName: 'dev-rg'
-        backendAzureRmStorageAccountName: 'devstg12345'
-        backendAzureRmContainerName: 'devstgcontainer'
-        backendAzureRmKey: 'terraform.tfstate'
+        backendAzureRmResourceGroupName: $(resource_group_name)
+        backendAzureRmStorageAccountName: $(storage_account_name)
+        backendAzureRmContainerName: $(container_name)
+        backendAzureRmKey: $(key)
 
     - task: TerraformTask@5
       inputs:
@@ -73,10 +78,10 @@ stages:
 #         command: 'init'
 #         workingDirectory: $(working_directory)
 #         backendServiceArm: $(service_connection)
-#         backendAzureRmResourceGroupName: 'dev-rg'
-#         backendAzureRmStorageAccountName: 'devstg12345'
-#         backendAzureRmContainerName: 'devstgcontainer'
-#         backendAzureRmKey: 'terraform.tfstate'
+#         backendAzureRmResourceGroupName: $(resource_group_name)
+#         backendAzureRmStorageAccountName: $(storage_account_name)
+#         backendAzureRmContainerName: $(container_name)
+#         backendAzureRmKey: $(key)
 #     - task: TerraformTask@5
 #       inputs:
 #         provider: 'azurerm'
@@ -125,10 +130,10 @@ stages:
         command: 'init'
         workingDirectory: $(working_directory)
         backendServiceArm: $(service_connection)
-        backendAzureRmResourceGroupName: 'dev-rg'
-        backendAzureRmStorageAccountName: 'devstg12345'
-        backendAzureRmContainerName: 'devstgcontainer'
-        backendAzureRmKey: 'terraform.tfstate'
+        backendAzureRmResourceGroupName: $(resource_group_name)
+        backendAzureRmStorageAccountName: $(storage_account_name)
+        backendAzureRmContainerName: $(container_name)
+        backendAzureRmKey: $(key)
 
     - task: TerraformTask@5
       inputs:
