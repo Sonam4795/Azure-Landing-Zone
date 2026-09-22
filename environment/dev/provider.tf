@@ -7,7 +7,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "dev-rg"
-    storage_account_name = "devstg123"
+    storage_account_name = "devstg12345"
     container_name       = "devstgcontainer"
     key                  = "terraform.tfstate"
 
