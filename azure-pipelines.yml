@@ -29,7 +29,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
         backendServiceArm: 'ADO SERVICE CONNECTION'
         backendAzureRmResourceGroupName: 'dev-rg'
-        backendAzureRmStorageAccountName: 'devstg123'
+        backendAzureRmStorageAccountName: 'devstg12345'
         backendAzureRmContainerName: 'devstgcontainer'
         backendAzureRmKey: 'terraform.tfstate'
 
@@ -47,7 +47,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
         backendServiceArm: 'ADO SERVICE CONNECTION'
         backendAzureRmResourceGroupName: 'dev-rg'
-        backendAzureRmStorageAccountName: 'devstg123'
+        backendAzureRmStorageAccountName: 'devstg12345'
         backendAzureRmContainerName: 'devstgcontainer'
         backendAzureRmKey: 'terraform.tfstate'
     - task: TerraformTask@5
@@ -86,7 +86,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev/'
         backendServiceArm: 'ADO SERVICE CONNECTION'
         backendAzureRmResourceGroupName: 'dev-rg'
-        backendAzureRmStorageAccountName: 'devstg123'
+        backendAzureRmStorageAccountName: 'devstg12345'
         backendAzureRmContainerName: 'devstgcontainer'
         backendAzureRmKey: 'terraform.tfstate'
 
