@@ -1,5 +1,7 @@
 trigger: none
 pool: devops agent pool
+# variables:
+#  working_directory: $(System.DefaultWorkingDirectory)/environment/dev
 stages:
 - stage: terraforminit
   displayName: terraform init
@@ -20,6 +22,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
+        #working_directory: $(working_directory)
         backendServiceArm: 'ADO SERVICE CONNECTION'
         backendAzureRmResourceGroupName: 'dev-rg'
         backendAzureRmStorageAccountName: 'devstg12345'
