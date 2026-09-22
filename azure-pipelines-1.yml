@@ -2,7 +2,7 @@ trigger: none
 pool: devops agent pool
 variables:
  working_directory: $(System.DefaultWorkingDirectory)/environment/dev
- service_connection: $(service_connection)
+ service_connection: 'ADO SERVICE CONNECTION'
 
 stages:
 - stage: terraforminit
