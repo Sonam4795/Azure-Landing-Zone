@@ -6,10 +6,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "devrg"
-    storage_account_name = "whitedevstg123"
+    resource_group_name  = "dev-rg"
+    storage_account_name = "devstg12345"
     container_name       = "devstgcontainer"
-    key                  = "terraform.tfkey"
+    key                  = "terraform.tfstate"
 
   }
 }
