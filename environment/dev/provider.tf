@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "azurerm" {
-    resource_group_name  = "dev-rg"
-    storage_account_name = "devstg12345"
-    container_name       = "devstgcontainer"
+    resource_group_name  = "JD-group"
+    storage_account_name = "storagegoldselver"
+    container_name       = "stplcontener"
     key                  = "terraform.tfstate"
   }
 }
