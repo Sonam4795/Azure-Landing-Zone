@@ -10,7 +10,7 @@ parameters:
   - test    # allowed list of values (for some data types)
 
 variables:
- working_directory: $(System.DefaultWorkingDirectory)/environment ${{ parameters.environment }}
+ working_directory: $(System.DefaultWorkingDirectory)/environment${{ parameters.environment }}
  service_connection: 'ADO SERVICE CONNECTION'
  resource_group_name: 'dev-rg'
  storage_account_name: 'devstg12345 '
