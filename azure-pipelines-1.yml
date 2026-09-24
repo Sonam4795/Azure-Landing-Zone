@@ -26,10 +26,29 @@ stages:
     displayName: terraform init
 
     steps:
-    # - task: TerraformInstaller@1
-    #   displayName: terraform installer
-    #   inputs:
-    #     terraformVersion: 'latest'
+    - task: TerraformInstaller@1
+      displayName: terraform installer
+      inputs:
+        terraformVersion: 'latest'
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          - powershell: |
+              Write-Host "=== Terraform Check ==="
+          
+              $tf = "D:\devops agent pool\_work\_tool\terraform\1.16.4\x64\terraform.exe"
+          
+              Write-Host "Terraform exists:"
+              Test-Path $tf
+          
+              Write-Host "Terraform version:"
+              & $tf version
+          
+              Write-Host "Current user:"
+              whoami
+          
+            displayName: 'Check Terraform from Agent'
     - task: TerraformTask@5
       displayName: terraform init
       inputs:
