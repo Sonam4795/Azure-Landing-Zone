@@ -6,7 +6,8 @@ parameters:
   default: dev          # default value; if no default, then the parameter MUST be given by the user at runtime
   values:
   - dev
-  - prod    # allowed list of values (for some data types)
+  - prod
+  - test    # allowed list of values (for some data types)
 
 variables:
  working_directory: $(System.DefaultWorkingDirectory)/environment ${{ parameters.environment }}
