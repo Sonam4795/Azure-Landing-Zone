@@ -5,7 +5,7 @@ variable "pip" {}
 variable "nic" {}
 variable "vm" {}
 variable "nsg" {}
-variable "subnet_nsg_ass" {}
-variable "bastion" {
+# variable "sql_server" {}
 
-}
+# variable "bastion" {}
+

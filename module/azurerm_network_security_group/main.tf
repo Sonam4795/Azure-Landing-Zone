@@ -18,4 +18,9 @@ resource "azurerm_network_security_group" "nsg_block" {
   
 }
 
+resource "azurerm_network_interface_security_group_association" "example" {
+  for_each = var.nsgs
+  network_interface_id = data.azurerm_network_interface.data_nic_block[each.key].id
+  network_security_group_id = azurerm_network_security_group.nsg_block[each.key].id
+}
 
